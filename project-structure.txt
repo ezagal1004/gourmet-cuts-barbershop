@@ -1,0 +1,37 @@
+Project Structure: gourmet-cuts-barbershop
+==================================================
+gourmet-cuts-barbershop/
+├── public/
+│   ├── images/
+│   │   ├── gel.webp
+│   │   ├── map-thumb.jpg
+│   │   ├── pomade.webp
+│   │   ├── service-beard.webp
+│   │   ├── service-haircut.heic
+│   │   ├── shirt1.heic
+│   │   ├── shirt2.heic
+│   │   └── shirt3.heic
+│   ├── videos/
+│   │   └── hero.mp4
+│   ├── favicon.ico
+│   ├── nav-logo.png
+│   ├── square-logo.png
+│   ├── web-app-manifest-192x192.png
+│   └── web-app-manifest-512x512.png
+├── src/
+│   └── app/
+│       ├── apple-icon.png
+│       ├── globals.css
+│       ├── icon0.svg
+│       ├── icon1.png
+│       ├── layout.js
+│       ├── manifest.json
+│       └── page.js
+├── .gitignore
+├── jsconfig.json
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+└── show-structure.js
