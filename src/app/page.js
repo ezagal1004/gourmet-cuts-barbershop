@@ -1,46 +1,7 @@
-"use client";
 import Link from "next/link";
-import { Calendar } from "lucide-react";
-import { useEffect, useRef } from "react";
+import VideoBackground from "@/components/VideoBackground";
 
 export default function Home() {
-
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    if (!videoRef.current) return;
-
-    const video = videoRef.current;
-
-    // Set slow motion
-    video.playbackRate = 0.5; // half speed
-
-    const attemptPlay = () => {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((err) => {
-          // Autoplay failed, usually mobile Safari
-          console.log("Autoplay prevented:", err);
-        });
-      }
-    };
-
-    // Wait until next paint to attempt autoplay
-    requestAnimationFrame(() => {
-      attemptPlay();
-    });
-
-    // Fallback: allow touch anywhere on hero to play video
-    const hero = document.querySelector("section.relative");
-    const onTouch = () => {
-      attemptPlay();
-      hero.removeEventListener("touchstart", onTouch);
-    };
-    hero.addEventListener("touchstart", onTouch);
-
-    // Clean up
-    return () => hero.removeEventListener("touchstart", onTouch);
-  }, []);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -48,16 +9,7 @@ export default function Home() {
       <section className="relative h-[100dvh] min-h-screen overflow-hidden" role="banner">
 
         {/* VIDEO BACKGROUND */}
-        <video
-          ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/videos/hero.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-label="Barbershop interior video background"
-        />
+        <VideoBackground />
 
         {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" aria-hidden="true" />
